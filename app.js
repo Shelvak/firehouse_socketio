@@ -6,13 +6,12 @@ var html = require('http')
 app.listen(8085);
 
 function SessionController () {
-  this.redis = require('redis').createClient()
+  this.redis = require('redis').createClient(6379, process.env['REDIS_PORT_6379_TCP_ADDR'] || 'localhost')
 }
 
 SessionController.prototype.subscribe = function (socket) {
   this.redis.on('message', function (channel, msg) {
-    console.log('redis' + msg);
-    socket.broadcast.emit('new-console-intervention', { link: msg });
+    socket.emit('new-console-intervention', { link: msg });
   });
 
   this.redis.subscribe('socketio-new-intervention');
