@@ -6,7 +6,10 @@ var html = require('http')
 app.listen(8085);
 
 function SessionController () {
-  this.redis = require('redis').createClient(6379, process.env['REDIS_PORT_6379_TCP_ADDR'] || 'localhost')
+  this.redis = require('redis').createClient(
+    6379, 
+    process.env['REDIS_HOST'] || process.env['REDIS_PORT_6379_TCP_ADDR'] || 'localhost'
+  )
 }
 
 SessionController.prototype.subscribe = function (socket) {
