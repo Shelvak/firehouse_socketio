@@ -15,18 +15,18 @@ function SessionController () {
 SessionController.prototype.subscribe = function (socket) {
   console.log('se llama a controller subscribe')
   this.redis.on('message', function (channel, msg) {
-    console.log('en redis msg')
-    socket.emit('new-console-intervention', { link: msg });
+    console.log('en redis msg' + msg)
+    message = JSON.parse(msg)
+    socket.emit(message.emit, message.data);
   });
 
   console.log('en redis subscribe')
-  this.redis.subscribe('socketio-new-intervention');
+  this.redis.subscribe('socketio-rails-notifier');
 }
 
 SessionController.prototype.unsubscribe = function () {
-  this.redis.unsubscribe('socketio-new-intervention');
+  this.redis.unsubscribe('socketio-rails-notifier');
 }
-
 
 
 io.on('connection', function (socket) {
