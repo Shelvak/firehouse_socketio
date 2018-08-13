@@ -17,7 +17,7 @@ SessionController.prototype.subscribe = function (socket) {
   this.redis.on('message', function (channel, msg) {
     console.log('en redis msg' + msg)
     message = JSON.parse(msg)
-    socket.emit(message.emit, message.data);
+    socket.broadcast.emit(message.emit, message.data);
   });
 
   console.log('en redis subscribe')
