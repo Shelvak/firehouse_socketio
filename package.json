@@ -14,16 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FRM-UTN/firehouse_socketio.git"
+    "url": "git+https://github.com/Shelvak/firehouse_socketio.git"
   },
   "keywords": [
     "socketIO",
     "redis"
   ],
-  "author": "Lucas Padovan && Néstor Coppi",
+  "author": "Néstor Coppi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FRM-UTN/firehouse_socketio/issues"
+    "url": "https://github.com/Shelvak/firehouse_socketio/issues"
   },
-  "homepage": "https://github.com/FRM-UTN/firehouse_socketio#readme"
+  "homepage": "https://github.com/Shelvak/firehouse_socketio#readme"
 }
